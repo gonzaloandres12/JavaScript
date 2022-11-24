@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/biblocteca.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset style="width: 400px; border: 2px solid black">
+      <form>
+        <h1 style="text-align: center">Biblioteca</h1>
+        Titulo:<input type="text" name="titulo" id="titulo" /><br />
+        Autor:<input type="text" name="Autor" id="autor" /><br />
+        Editorial:<input type="text" name="editorial" id="editorial" /><br />
+        Año Edicion:<input type="date" name="fecha" id="fecha" /><br />
+        <textarea id="textArea" style="width: 300px; height: 80px"></textarea
+        ><br />
+        <input type="button" value="GUARDAR" onclick="funcionGuardar()" />
+        <input type="button" value="VISUALIZAR" onclick="funcionVisualizar()" />
+      </form>
+    </fieldset>
+  </body>
+</html>

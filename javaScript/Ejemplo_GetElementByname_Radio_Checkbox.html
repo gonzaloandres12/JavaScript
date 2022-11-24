@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nombre<input type="text"><br>
+    Apellido<input type="text"><br>
+    Forma de pago:      Mensual<input type="radio" name="radioGroup" value="Mensual">     Trimestral<input type="radio" name="radioGroup" value="Trimestral">    Anual<input type="radio" name="radioGroup" value="Anual"><br>
+    Accesorios: Todo Riesgo<input type="checkbox" name="checkBox" value="Todo Riesgo">  Enchufable<input type="checkbox" name="checkBox" value="Enchufable">   Llantas de aleacion<input type="checkbox" name="checkBox" value="Llantas de aleacion"> 
+    <input type="button" value="CALCULAR" onclick="calcular()"><input type="button" value="Ver selecciones" onclick="VerSeleccion()"><br>
+    <label>Total:</label><input type="text" size="1px"><label>€</label>
+</body>
+<script>
+    var periodoPago = document.getElementsByName('radioGroup');
+    var text = "";
+    function  VerSeleccion(){
+        for (let index = 0; index < periodoPago.length; index++) {
+            if(periodoPago[index].checked){
+                alert("Forma de pago: "+periodoPago[index].value);
+                break;
+            }
+        }
+
+
+        var tiposCheck = document.getElementsByName('checkBox');
+        for (let index = 0; index < tiposCheck.length; index++) {
+            if(tiposCheck[index].checked){
+                alert(tiposCheck[index].value);
+            }
+            
+            
+        }
+    }
+</script>
+</html>

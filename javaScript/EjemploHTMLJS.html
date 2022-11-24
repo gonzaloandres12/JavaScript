@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1</title>
+    <script src="ejemplo1.js"></script>
+</head>
+<body>
+    <form>
+        <p>Introduzca su edad</p>
+        <input type="text" name="Entrada" value="">
+    </form>
+    <script>
+        /*var entrada = prompt("Introduzca su edad",18);
+        var suma = parseInt(entrada)+20;
+        alert(suma);*/
+
+        const Ventas = "Toyota";
+        function tiposCarro(nombre)
+        {
+            if(nombre == "Honda")
+            {
+                return nombre;
+            }else
+            {
+                return "Lo siento, nomsotros no tenemos "+nombre+".";
+            }
+        }
+
+        var carro = {miCarro: "Saturn", getCarro: tiposCarro("Honda")};
+
+        console.log(carro.miCarro);
+        console.log(carro.getCarro);
+        //console.log(carro.especial);
+
+        var coche = {marca: "audi", propietario:{nombre:"Alfonso",Matricula:"545-123B",DNI:"5123541P"}};
+        console.log(coche.propietario.DNI);
+        console.log(coche.propietario.nombre+"\n"+coche.propietario.DNI);
+        
+
+    </script>
+</body>
+</html>

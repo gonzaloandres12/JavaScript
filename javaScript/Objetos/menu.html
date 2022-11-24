@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function funcionEnviar()
+        {
+            var primerPalto = document.getElementsByName('primero');
+            var segundoPlato = document.getElementsByName('segundo');
+            var postre = document.getElementsByName('postre');
+            
+            for (let index = 0; index < postre.length; index++) {
+               if(postre[index].checked)
+               {
+                //radio check break
+                var postreCheck = postre[index].value;
+                break;
+               }
+            }
+            var textArea = document.getElementById('textArea');
+            textArea.value="Primer Plato:"+primerPalto[0].value+"\n"+"Segundo Plato:"+segundoPlato[0].value+"\n"+"Postre:"+postreCheck;
+        }
+    </script>
+
+<fieldset style="width: 400px; border: 2px solid black">
+    <label>PRIMER PLATO    
+    <select size="1" name="primero">
+        <option>Lentejas</option>
+        <option>Garbanzos</option>
+        <option>Brocoli</option>
+        <option>Fabada</option>
+    </select></label>
+<br><br>
+    <label>SEGUNDO PLATO 
+         <select size="1" name="segundo">
+        <option>Entrecot</option>
+        <option>Lubina</option>
+        <option>Merluza</option>
+        <option>Pecchuga de pollo</option>
+    </select>
+    </label>
+<br><br>
+    <label>Postre
+        Cafe<input name="postre" type="radio" value="Cafe">
+        Helado<input name="postre" type="radio" value="Helado">
+        Tarta<input name="postre" type="radio" value="Tarta">
+        Fruta<input name="postre" type="radio" value="Fruta">
+    </label>
+<br><br>
+   <textarea id="textArea" rows="10" cols="30"></textarea>
+<br><br>
+    <input type="submit" value="Enviar" onclick="funcionEnviar()">
+</fieldset>
+</body>
+</html>

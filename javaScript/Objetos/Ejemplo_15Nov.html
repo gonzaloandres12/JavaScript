@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Marca:<input value="" type="text" name="Marca"></label><br>
+    <label>Modelo:<input value="" type="text" name="Modelo"></label><br>
+    <label>Memoria Ram:<input value=" " type="text" name="Memoria"></label><br>
+    <label>Microprocesador:<input value="" type="text" name="Microprocesador"></label><br>
+    <label>Grafica:<input value="" type="text" name="Grafica"></label><br>
+    <label>Portatil:<label>Si</label><input name="portatil" type="radio" value="si" checked>
+    <label>No</label><input name="portatil" type="radio" value="no"></label><br>
+    <input type="button" value="Añadir" onclick="add(this.value)"><input type="button" value="Consultar" onclick="add(this.value)">
+    <input type="button" value="Eliminar" onclick="add(this.value)"><input type="button" value="Borrar Campos" onclick="add(this.value)"><br>
+    <textarea id="textArea" rows="10" cols="50"></textarea>
+    <h1><B>IMAGEN TARGETA GRAFICA</B></h1>
+</body>
+<script>
+    var tarjetaArr = [];
+    function Tarjeta(marca,modelo,memoriaRam,microprocesaror,grafica,portatil){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.memoriaRam = memoriaRam;
+        this.microprocesaror = microprocesaror;
+        this.grafica = grafica;
+        this.portatil = portatil;
+    }
+
+
+    function add(value)
+    {
+        var inputs = document.getElementsByTagName('input');
+        var textarea = document.getElementById('textArea');
+        switch(value){
+            
+            case "Añadir":
+            //button añadir
+            if(inputs[5].checked){
+                tarjetaArr.push(new Tarjeta(inputs[0].value,inputs[1].value,inputs[2].value,inputs[3].value,inputs[4].value,inputs[5].value));
+            }else{
+                tarjetaArr.push(new Tarjeta(inputs[0].value,inputs[1].value,inputs[2].value,inputs[3].value,inputs[4].value,inputs[6].value));
+
+            }
+          
+            console.log(tarjetaArr);
+            break;
+            
+            case "Consultar":
+                textarea.value = "";
+               
+                //El método filter devuelve un array con todos para los elementos que se cumple la condición
+                //filter hace calback a la funcion que se le pasa y le devulve true o false si el elemento marca del array es igual 
+                //al que esta en el input y al final filter devuelve un array de los elementos true.
+                var results = tarjetaArr.filter(function (arrayTParamentro) { return arrayTParamentro.marca.toLowerCase() == inputs[0].value.toLowerCase(); });      
+
+                console.log(results);
+                for (let index = 0; index < results.length; index++) {
+                    textarea.value+="Marca:"+results[index].marca+"\n";
+                    textarea.value+="Modelo:"+results[index].modelo+"\n";
+                    textarea.value+="Memoria Ram:"+results[index].memoriaRam+"\n";
+                    textarea.value+="Microprocesador:"+results[index].microprocesaror+"\n";
+                    textarea.value+="Grafica:"+results[index].grafica+"\n";
+                    textarea.value+="Portatil:"+results[index].portatil+"\n";
+                    textarea.value+="-----------------"+"\n";
+                }
+            //button consultar
+            break;
+
+            case "Eliminar":
+            //button eliminar
+            
+            break;
+
+            case "Borrar Campos":
+            inputs[0].value="";
+            inputs[1].value="";
+            inputs[2].value="";
+            inputs[3].value="";
+            inputs[4].value="";
+            inputs[5].checked='';
+            inputs[6].checked='';
+            textarea.value = "";
+            break;
+        }
+    }
+
+</script>
+</html>
