@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script src="JS/calculadora.js"></script>
+
+</head>
+<body>
+
+    <table>
+        <tr><input type="text" value="" readonly></tr>
+        <tr>  
+            <td><input value="7" type="button" onclick="addNumber(this.value); mostrarNumeros(this.value)"></td>
+            <td><input value="8" type="button" onclick="addNumber(this.value)"></td>
+            <td><input value="9" type="button" onclick="addNumber(this.value)"></td>
+            <td><input value="/" type="button" onclick="operaciones(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input value="4" type="button" onclick="addNumber(this.value)"></td>
+            <td><input value="5" type="button" onclick="addNumber(this.value)"></td>
+            <td><input value="6" type="button" onclick="addNumber(this.value)"></td>
+            <td><input value="*" type="button" onclick="operaciones(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input value="1" type="button" onclick="addNumber(this.value)"></td>
+            <td><input value="2" type="button" onclick="addNumber(this.value)"></td>
+            <td><input value="3" type="button" onclick="addNumber(this.value)"></td>
+            <td><input value="-" type="button" onclick="operaciones(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input value="0" type="button" onclick="addNumber(this.value)"></td>
+            <td><input value="=" type="button" onclick="resultado()"></td>
+            <td><input value="C" type="button"></td>
+            <td><input value="+" type="button" onclick="operaciones(this.value)"></td>
+        </tr>
+    </table>
+
+
+</body>
+</html>
