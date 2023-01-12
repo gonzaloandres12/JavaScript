@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejemplo de almacenamiento de session con HTML5</title>
+<style type="text/css">
+body {
+	font-family: sans-serif;
+}
+span#mensajes {
+	color: blue;	
+}
+</style>
+</head>
+<body>
+<h1>Ejemplo de almacenamiento de session con HTML5</h1>
+
+<h3>Login:</h3>
+<table>
+	<tr>
+		<td>Usuario:</td>
+		<td><input type="text" name="user"/></td>
+	</tr>
+	<tr>
+		<td>Contraseña:</td>
+		<td><input type="text" name="pass"/></td>
+	</tr>
+	<tr>
+		<td><input type="button" name="Envio" value="Enviar" onclick="guardar();"/></td>
+		<td><input type="button" name="Mostrar" value="Mostrar" onclick="mostrar();"/></td>
+	</tr>
+</table>
+
+</body>
+<script>
+
+function guardar(){
+	var vUser = document.getElementsByName('user');
+	var vPass = document.getElementsByName('pass');
+	console.log(vUser[0].value);
+
+	const obj = {'nombre':vUser[0].value,'pass':vPass[0].value}
+	//console.log(obj);
+	var x =JSON.stringify(obj);
+	
+	localStorage.setItem('login',x);
+}
+
+function mostrar() {
+	var objRe = JSON.parse(localStorage.getItem('login'));
+	alert("Nombre:"+objRe.nombre+" Pass:"+objRe.pass);
+	
+}
+</script>
+</html>
