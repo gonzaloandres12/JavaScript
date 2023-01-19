@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nombre:<input type="text" name="nombre"><br>
+    Apellido:<input type="text" name="apellido"><br>
+    <input type="submit" value="Entrar" onclick="grabando();">
+</body>
+<script>
+
+function grabando()
+{
+    
+    var nombreD = document.getElementsByName('nombre');
+    var apellidoD = document.getElementsByName('apellido');
+    var obj = {"nombre":nombreD.value,"apellido":apellidoD.value,"fecha":new Date()};
+    localStorage.setItem("contacto",JSON.stringify(obj));
+    
+    
+}
+</script>
+</html>

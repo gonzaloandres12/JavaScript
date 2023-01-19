@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejemplo de almacenamiento local con HTML5</title>
+<style type="text/css">
+body {
+	font-family: sans-serif;
+}
+span#mensajes {
+	color: blue;	
+}
+</style>
+</head>
+<body>
+<h1>EJEMPLO DE ALMACENAMIENTO LOCAL CON HTML5</h1>
+
+<span id="mensajes"></span><br/><br/>
+AREA DE ALMACENAMIENTO: 
+<select id="tipo">
+<option value="local">LOCAL</option>
+<option value="sesion">SESION</option>
+</select><br/>
+CLAVE: <input type="text" id="clave"/><br/>
+VALOR: <input type="text" id="valor"/><br/><br/>
+<button onclick="guardar()">GUARDAR</button> <!--Onclick-->
+<button onclick="eliminar()">ELIMINAR</button> <!--Onclick-->
+<button onclick="refrescar()">REFRESCAR</button> <!--Onclick-->
+<button>COMPROBAR COMPATIBILIDAD DEL NAVEGADOR</button>
+
+<br/><br/>
+<table>
+<tr>
+<td>
+CLAVES Y VALORES EN LOCAL STORAGE:<br/>
+<textarea rows="10" cols="50" id="almacenamientoLocal" readonly="readonly"></textarea>
+</td>
+<td>
+CLAVES Y VALORES EN SESSION STORAGE:<br/>
+<textarea rows="10" cols="50" id="almacenamientoSesion" readonly="readonly"></textarea>
+</td>
+</tr>
+</table>
+<p>Puedes probar a guardar valores con almacenamiento local y de sesi&oacute;n, cierra y abre el navegador o la pesta&ntilde;a y observar&aacute;s que se pierden los datos almacenados en sesi&oacute;n pero no los locales.</p>
+<p>Tambi&eacute;n puedes probar a abrir dos ventanas guardar valores con almacenamiento local en una de ellas y ver como aparecen en la otra.</p>
+
+</body>
+<script>
+    var textLocal =document.getElementById("almacenamientoLocal");
+    var textSesion =document.getElementById("almacenamientoSesion");
+    function elementoSeleccionado(lista){
+        let seleccionado;
+        for(let i = 0 ;i<lista.length;i++){
+            if(lista[i].selected){
+                seleccionado = lista[i].value;
+            }
+        }
+        return seleccionado;
+    }
+    function guardar(){
+        let lista =  document.getElementsByTagName("option");
+        let clave = document.getElementById("clave");
+        let valor = document.getElementById("valor");
+        let seleccionado = elementoSeleccionado(lista);//se guarda el valor de la lista seleccionado
+       
+        //creo un objeto
+        const obj = {"clave":clave.value,"valor":valor.value};
+        let objtoString = JSON.stringify(obj);
+        switch (seleccionado) {
+            case "local":
+                localStorage.setItem(clave.value,objtoString);
+                console.log(objtoString);
+                break;
+        
+            case "sesion":
+                sessionStorage.setItem(clave.value,objtoString);
+                console.log(objtoString);
+                break;
+        }
+    }
+
+    function refrescar(){
+        let lista =  document.getElementsByTagName("option");
+        let seleccionado = elementoSeleccionado(lista);
+
+        var x = "asd";
+        javascriptsnippets
+        switch (seleccionado) {
+            case "local":
+                for (let index = 0; index < localStorage.length; index++) 
+                {
+                    let allLocalStorage = localStorage.getItem(localStorage.key(index));
+                    textLocal.value += allLocalStorage+"\n";
+                }
+            break;
+        
+            case "sesion":
+                for (let index = 0; index < sessionStorage.length; index++) 
+                {
+                    let allSesion= sessionStorage.getItem(sessionStorage.key(index));
+                    textSesion.value += allSesion+"\n";
+                }
+            break;
+        }
+
+    }
+    function eliminar(){
+        textLocal.value = "";
+        textSesion.value = "";
+    }
+</script>
+</html>

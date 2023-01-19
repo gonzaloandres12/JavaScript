@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fecha y Hora último acceso</title>
+</head>
+<body>
+	<form id="form">
+		Nombre:
+		<input type="text" name="nom">
+		<br>
+		Apellido:
+		<input type="text" name="apellido">
+		<br>
+		<input type="button" value="entrar" onclick="guardar();">
+	</form>
+	<div id="mensaje">
+		
+	</div>
+	
+</body>
+<script>
+	function guardar(){
+	var vNombre = document.getElementsByName('nom');
+	var vApellido = document.getElementsByName('apellido');
+	var mensaje = document.getElementById("mensaje");
+	mensaje.innerHTML = "";
+	var msg;
+	const obj = {'nombre':vNombre[0].value,'apellio':vApellido[0].value,"fecha":new Date(Date.now()).toLocaleString().split(',')[0]}
+	//console.log(obj);
+	var x =JSON.stringify(obj);
+	//localStorage.setItem('entrado'+obj.nombre,x);
+
+	var almacenObj = JSON.parse(localStorage.getItem('entrado'+obj.nombre));
+	if(almacenObj!=null && almacenObj.nombre ===  obj.nombre && almacenObj.apellio ===  obj.apellio){
+		msg = "Su ultimo ingreso ha sido->"+almacenObj.fecha;
+		localStorage.setItem('entrado'+almacenObj.nombre,x);
+	}else{
+		msg= "Bienvenido a su primera visita ->"+obj.nombre;
+		localStorage.setItem('entrado'+obj.nombre,x);
+	}
+	mensaje.innerHTML = msg;
+
+	
+}
+</script>
+</html>
