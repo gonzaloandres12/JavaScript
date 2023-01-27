@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let selectArray = ["Intvw Scheduled", "Selected", "Rejected", "On Hold"];
+    
+    var selectList = document.createElement("select");
+    selectList.id = "mySelect";
+    
+    
+    //Create and append the options
+    for (var i = 0; i < selectArray.length; i++) {
+        var option = document.createElement("option");
+        option.value = selectArray[i];
+        option.text = selectArray[i];
+        selectList.appendChild(option);
+    }
+    document.body.appendChild(selectList);
+</script>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributo onClick</title>
+</head>
+<body>
+    <p>Haz Click sobre el botón para capturar el "value" del atributo 'onclick' del elemento botón.</p>
+    <button onclick="Invocalaf()">Pruébalo</button>
+    <p><strong>Nota:</strong> Internet Explorer 8 y anteriores no soportan el método "getNamedItem".</p>
+    <p id="demo"></p>
+    <script>
+        function Invocalaf() {
+            var a = document.getElementsByTagName("BUTTON")[0];
+            /*Lo siguiente es una solución:
+            alert(x);
+            alert(a.attributes[0].nodeName);
+            alert(a.attributes[0].nodeValue);*/
+            //La siguiente la propuesta      
+	        var x = a.attributes.getNamedItem("onclick")
+	          
+            document.getElementById("demo").innerHTML = x.textContent;
+        }
+
+    </script>
+
+</body>
+</html>

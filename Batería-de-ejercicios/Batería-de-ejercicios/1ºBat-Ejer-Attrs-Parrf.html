@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo uso Attributes</title>
+    <script>
+        function listAttributes() {
+            var primerParra = document.getElementById("parrafo");
+            var outputText = document.getElementById("result");
+
+    // Primero, se trata de verificar que el párrafo tiene
+    //algún atributo.    
+            if (primerParra.hasAttributes()) {
+                var attrs = primerParra.attributes;
+                var text = "";
+                for(var i = attrs.length - 1; i >= 0; i--) {
+                    text += attrs[i].name + " -> " + attrs[i].value + "\n";
+                }
+                outputText.value = text;
+	            //document.write(text);
+            } else {
+                outputText.value = "No attributes to show";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="parrafo" style="color: green;">Párrafo sencillo</p>
+ <form action="">
+  <p>
+    <input type="button" value="Muestra el nombre y valor del primer attribute" onclick="listAttributes();"><br><br>
+    <textarea name="" id="result" cols="30" rows="10"></textarea>
+  </p>
+ </form>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Uso eventos teclado</title>
+</head>
+<body><div id="cabecera">
+<h2>CONTROLANDO EVENTOS DE TECLADO</h2>
+<h3>Ejemplo JavaScript: pulse una tecla</h3></div>
+<div id="control"></div>
+<script type="text/javascript">
+//Se recomienda consultar https://developer.mozilla.org/es/docs/Web/API/Event
+var eventoControlado = false;
+
+
+function mostrarInformacionCaracter(evObject) {
+                var msg = ''; var elCaracter = String.fromCharCode(evObject.which);
+                if (evObject.which!=0 && evObject.which!=13) {
+                msg = 'Tecla pulsada: ' + elCaracter;
+                control.innerHTML += msg + '-----------------------------<br/>'; }
+                else { msg = 'Pulsada tecla especial';
+                control.innerHTML += msg + '-----------------------------<br/>';}
+                eventoControlado=true;
+}
+function mostrarInformacionTecla(evObject) {
+                var msg = ''; var teclaPulsada = evObject.keyCode;
+                if (teclaPulsada == 20) { msg = 'Pulsado caps lock (act/des mayúsculas)';}
+                else if (teclaPulsada == 16) { msg = 'Pulsado shift';}
+                else if (eventoControlado == false) { msg = 'Pulsada tecla especial';}
+                if (msg) {control.innerHTML += msg + '-----------------------------<br/>';}
+                eventoControlado = false;
+}
+function asignaroyentes(){
+    document.addEventListener("keypress",mostrarInformacionCaracter,false);
+    document.addEventListener("keyup",mostrarInformacionTecla,false);
+}
+document.addEventListener("DOMContentLoaded", asignaroyentes, false);
+</script>
+</body>
+</html>

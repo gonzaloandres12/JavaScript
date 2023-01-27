@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlando el Tag "H1" y creando class</title>
+    <style>
+        .democlass {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hola Mundo</h1>
+    <p>Haz click sobre el botón para crear el atributo "class" de H1 y asignarle "democlass".</p>
+    <button onclick="Invocalaf()">Inténtalo</button>
+    <script>
+        function Invocalaf() {
+            var h = document.getElementsByTagName("H1")[0];
+            var typ = document.createAttribute("class");
+            typ.value = "democlass";
+            h.attributes.setNamedItem(typ);
+		
+        }
+    </script>
+</body>
+</html>

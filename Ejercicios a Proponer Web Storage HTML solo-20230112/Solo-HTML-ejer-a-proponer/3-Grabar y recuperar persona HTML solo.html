@@ -19,10 +19,61 @@
 	Provincia:
 	<input type="text" name="provincia">
 	<br>
-	<button id="guardar">Guardar</button>
-	<button id="recuperar">Recuperar</button>
-	<button id="borrarSesion">Borrar datos de sesion</button>
-	<button id="reset">Borrar campos</button>
+	<button id="guardar" onclick="guardar()">Guardar</button>
+	<button id="recuperar" onclick="recuperar()">Recuperar</button>
+	<button id="borrarSesion" onclick="borrarSesion()">Borrar datos de sesion</button>
+	<button id="reset" onclick="reset()">Borrar campos</button>
 
 </body>
+<script>
+	function guardar(){
+		let nombre = document.getElementById("nombre");
+		let apellido = document.getElementById("apellidos");
+		let movil = document.getElementsByName("movil");
+		let provincia = document.getElementsByName("provincia");
+
+		const cliente  = {"nombre":nombre.value,"apellido":apellido.value
+		,"movil":movil[0].value,"provincia":provincia[0].value};
+
+		localStorage.setItem(movil[0].value,JSON.stringify(cliente));
+		
+	}
+
+	function recuperar(){
+		
+		let nombre = document.getElementById("nombre");
+		let apellido = document.getElementById("apellidos");
+		let movil = document.getElementsByName("movil");
+		let provincia = document.getElementsByName("provincia");
+	
+
+
+
+		const valorCLiente = JSON.parse(localStorage.getItem(movil[0].value));
+
+		console.log(valorCLiente);
+		nombre.value = valorCLiente.nombre;
+		apellido.value = valorCLiente.apellido;
+		movil[0].value = valorCLiente.movil;
+		provincia[0].value = valorCLiente.provincia;
+
+
+	}
+
+	function borrarSesion(){
+		let movil = document.getElementsByName("movil");
+		localStorage.removeItem(movil[0].value);
+	}
+
+	function reset(){
+		let nombre = document.getElementById("nombre");
+		let apellido = document.getElementById("apellidos");
+		let movil = document.getElementsByName("movil");
+		let provincia = document.getElementsByName("provincia");
+		nombre.value ="";
+		apellido.value ="";
+		movil[0].value ="";
+		provincia[0].value ="";
+	}
+</script>
 </html>

@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>Ejemplo de parámetro de objeto de evento</title>
+</head>
+<body>
+<p>Para ver las coordinadas del ratón haga clic en cualquier lugar de esta página.</p>
+</body>
+<script>
+    document.body.addEventListener("mousedown",function(event){
+        document.body.innerHTML +="Cordenadas X"+event.clientY+ " "+"Cordenadas Y"+event.clientY+"<br>";
+    });
+</script>
+</html>

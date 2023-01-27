@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Ejemplo de uso de setInterval/clearInterval</title>
+
+</head>
+ 
+<body onload="changeColor();">
+	<p id="p-primero">Hola</p>
+	<div name="caja" id="my_box">
+		<p id="parrafo">Good Morning DAW del Tetuan</p>
+	</div>
+	<button onclick="stopTextColor();">Parar</button>
+<script>
+	var nIntervId;
+	 
+	function changeColor() {
+	  nIntervId = setInterval(flashText, 500);
+	}
+	 
+	/*function flashText() {
+		var oElem = document.getElementById("my_box");
+		oElem.style.color = oElem.style.color == "red" ? "blue" : "red";
+	}*/
+	function flashText(){
+		document.getElementById("p-primero").style.color=document.getElementById("p-primero").style.color=="red" ? "blue" : "red";;
+		document.getElementsByTagName("p")[1].style.color=document.getElementsByTagName("p")[1].style.color=="red" ? "blue" : "red";
+	}
+	 
+	function stopTextColor() {
+	  clearInterval(nIntervId);
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Otro de control rápido</title>
+  <script language="javascript">
+	/*Dado el siguiente código:
+	elaborar el código que asigne oyente de evento "change" al select anterior. No sabemos qué item ocupa en el formulario.
+	Y controlar que el texto del elemento seleccionado se visualice en el div.
+	Se deberá controlar el objeto evento para presentar el valor del desplegable.
+	solucion:*/
+	function iniciar(){
+		const selectElement = document.querySelector('.nieve');
+		const resultado = document.querySelector('.resultado');
+		while (resultado.firstchild){
+			resultado.removechild;
+		}
+		selectElement.addEventListener('change', (event) => {
+    			
+    			resultado.textContent = `Te gusta el sabor ${event.target.value}`;
+		});
+	}
+	document.addEventListener("DOMContentLoaded",iniciar,false);
+  </script>
+  </head>
+  <body>
+    	<label>Elija un sabor de nieve:
+    	<select class="nieve">
+        	<option value="">Seleccione Uno …</option>
+        	<option value="chocolate">Chocolate</option>
+        	<option value="sardina">Sardina</option>
+        	<option value="vainilla">Vainilla</option>
+    	</select>
+	</label>
+	<div class="resultado"></div>
+  </body>
+</html>

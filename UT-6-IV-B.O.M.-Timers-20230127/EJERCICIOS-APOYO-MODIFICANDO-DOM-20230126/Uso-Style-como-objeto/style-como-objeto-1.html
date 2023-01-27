@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style como propiedad</title>
+    <style type="text/css">
+        #p1 { border: solid blue 2px; }
+    </style>
+</head>
+<body>
+  <!-- pasar la referencia al objeto del elemento, como parámetro 'this'. -->
+  <p id="p1" onclick="alterStyle(this)";> Haz clic aquí para cambiar el color de fondo. </p>
+  <!-- pasar el identificador 'pl' de otro elemento a modificar. -->
+  <button onclick="resetStyle('p1');">Volver al color de fondo original</button>
+  <script type="text/javascript">
+      /*Para que style sea interpretada como una propiedad habría que referenciar las stylesheets.
+      Como en las dos siguientes instrucciones:
+      var ss = document.styleSheets[1];
+      ss.cssRules[0].style.backgroundColor="blue";
+      */ 
+    function alterStyle(elem) {
+        //El siguiente alert devuelve un objeto de tipo CSSStyleDeclaration.
+        alert(elem.style);
+        elem.style.background='green'; 
+    }
+    function resetStyle(elemId) { 
+        elem = document.getElementById(elemId);
+        //El siguiente alert devuelve un objeto de tipo CSSStyleDeclaration.
+        alert(elem.style);
+        elem.style.background='white'; 
+    }
+    </script>  
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso setTimeOut y Location</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=VBd8CAM9jJLGkg6DuG9A3Ve0EajQ9gp90S2k8SrJO6DQcuD5P-wac1Y706bwcFmP39lw7WQ9OfFqufMkgxMkUK6IHB_QhXji0lLAhMtiSqcaK2wCzjNFoec2HeQ7eSA7WFotnSGsaQzX0bvzmOseF-xidzNJblfAurwgE7UsGNUfuLzVrqpgnUG96W89AucdY_dvGvoMFZIDYITH_l4kGj27pMqzhQg6zBS5v9Q3a8ALezhZ9AoCVdbsg2_YuXmx0ztTkm8DjYbj2p6l3bVWXAIoiavf3njPjRGwxLynL4lJ39q7PJ9PKk_dcZUGL8ZidUx4QS0P0XrGfSzhZi96dWY-ZeXNtsWx6FnzoFYO--VmOYnKhMZ9hQsyQHoTOgolM3GOeQZL6v44TmnXmZ3H6U-CUOW3lXRT1r459MhXNrOZBhiZW9-7FE5t_1uxeKEfP7jVVSyWPDAQ12WvalSyh4PBfIdCkC4_Du18NilwhPGcHXZ9c3Rctc-swwzCqTkh4Y4L4NS7BUynUd0BB5Mz5xUk7HI8ezjczgMTWTyflYAeAGRPaVaAPr9m-dhzJUZNc8GNO7v111teN7SRUifkhU9B80Ot7LSd030jJgWS2IATJ-6n2IVCrNMOk2qOhaqaFpXVn0CdvMdlXPaIc8dpP2cuq-KF-nO10KrcGerKOhl8uPVYbDEy-7ZqupmqMbmcG7ZW6xI3rl-kNJoBSzo06zhz7IrVCnMA_xBS6APYM7fLoZ7b6svgZAOAkPhKMId7SIQTvLX-K-Fh6dm8bLYJpCjNB_t7tFmSTwSUMdL85qPeQZWCnwKV6l_RV1llBtkLi09_9VuiUq-wPJpO_7ozxcs31Hx1FZMBILboazDhKjbDSBEluLQ8ZI7CePSKZm25qrNatO2uqcVLJL6j9WCcuTYYuf03-O5uYuidd6C7T2_lHQKHmNMSDnfpyIpQE2_FceY50uchaEDgJXXZeV_ACfvqlrBKpXPTqTErpd6b5MbeXtHIUZdZAkeLnkcXxcYjUkCWE5Wg1xRZevIgzwmFLJbuXLeFSGrskXNq2gxc8MQcH_XVdsYVvkqBFsuZNbMfSm35PDm58kp2XV3vFIojbu9KpHBLbK7pRn6SDWpqYtYC6yoHxuGORrgfsQ1z9IejgCKKeu6Qj8IPfYb7TnCWIA" nonce="f1c3335e610dbc8992dfa0b4d423d620" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9tYWlsLWF0dGFjaG1lbnQuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2F0dGFjaG1lbnQvdS8wLz91aT0yJmlrPTI3NGIwOWYxNGQmYXR0aWQ9MC4xMiZwZXJtbXNnaWQ9bXNnLWE6ci0zNTAyODM3NDA5NzkzNTkyNTg3JnZpZXc9YXR0JmRpc3A9c2FmZSZyZWFsYXR0aWQ9Zl9reGZ3NW84cDExJnNhZGRiYXQ9QU5HamRKOXFmN2RTeEtOVW5pWHYwZXpweWVYb2FOUnkxLXc2ektfZENQYnlVQlpPbmIxSm5nMHJacVNnZW5vUnhIVDZHWkl6MXVOMkhFR1cxWkxkdjJ1OF9CQjMzWGViQ3hyaGw5QWhIbFhmRmdvTjRVM2NXSUg0S05IRHdBTGhVaU4talFERlJZTXNobDdwclRaYmRSRGhndWo4VktuejkyUWhJOTFFaWhKRmdNRDZOOHYyRnJlOWlqWUpTQmI5LTVoR0lqMHV2OXhSaE9EYUJ5S3BfbDFwdVRxOTVaeWpKOTNBRDBnSUZBdVBMZ2hUZFJNUXpoY3hpeFZQMmtRRTdhd3kzRjNOaDFaaUJwQ1kyRHMyM0ViU2VfNUo1UzJSd2NnVnlsSzVqdVowX2FlTmd5RnIxRmNRRTlCdmdhaEk5VWsweERnaWxqdVZTejhZV0hsR3Y4OUFtQTVXNWZmcU1VazYzbGlhaklNV2RUVXBYMTBNNy1Qai1kM2NnOVg4UmR2TUEwcTFra3J3VkxTcHkwOUtrNzgtSTU2YjNwVmJjZFZHbENyNEJkRGs4dURZRVJBY280aWd5NTE0eVEtWjZGRXFBYmRQb0d0X1pVS0pJZGJMNXBpNUxIOUVua2tGSGRVU2pzdFQtcHRKT0VLYWkyeFh2QkxOeVFCZnVWeEFMdHdvSW11NWtEZXJzMW9TUVFRYUlobkwxLWlFSEhmYTVNeXFHZ3ZWLVQ4VW55WVNnMFJ3N213SERXcDNFSzVpWHNBVEF0QnlTQ3pFcXVib3RBa2szbWszeHZQOTI2TUtWNkhyVVc1T2F0aUZUTnJpbEN0d1lXQzJUbldQeGQwLTVZSHRSNTBnQ2JiVEtZU1gwdmxSd2s5SUR2alBxeWxBQmRQZ2xoNVNNUQ"/></head>
+<body>
+    <h3>Estamos mejorando nuestra web</h3>
+    <h2>En 5 segundos le vamos a trasladar a página segura</h2>
+    <script>
+        var IDtraslado;
+      
+        IDtraslado=window.setTimeout(cambio,5000);
+        function cambio(){
+            location="https://www.iestetuan.es/cmsj";
+        }
+     
+    </script>
+</body>
+</html>

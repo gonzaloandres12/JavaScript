@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternando el estilo de un párrafo</title>
+</head>
+<body>
+    <p>Párrafo de texto</p>
+	<button type='button' onclick='alternarBorde();'>Alternar borde</button>
+	<button type='button' onclick='alternarColor();'>Alternar color</button>
+	<button type='button' onclick='alternarFondo();'>Alternar fondo</button>
+    <script>
+        function alternarBorde(){
+			var parrafo = document.getElementsByTagName('p')[0];
+			if (parrafo.style.border != '1px solid red'){
+				parrafo.style.border = '1px solid red';
+			}else{
+				parrafo.style.border = '';
+			}
+		}
+		function alternarColor(){
+			var parrafo = document.getElementsByTagName('p')[0];
+			if (parrafo.style.color != 'orange'){
+				parrafo.style.color = 'orange';
+			}else{
+				parrafo.style.color = '';
+			}
+		}
+		function alternarFondo(){
+			var parrafo = document.getElementsByTagName('p')[0];
+			if (parrafo.style.backgroundColor != 'yellow'){
+				parrafo.style.backgroundColor = 'yellow';
+			}else{
+				parrafo.style.backgroundColor = '';
+			}
+		}
+    </script>
+</body>
+</html>

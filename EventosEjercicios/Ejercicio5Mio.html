@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Otro de control rápido</title>
+</head>
+  <body>
+        <label>Elija un sabor de nieve:
+        <select class="nieve">
+            <option value="">Seleccione Uno …</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="sardina">Sardina</option>
+            <option value="vainilla">Vainilla</option>
+        </select>
+    </label>
+    <div class="resultado"></div>
+  </body>
+  <script>
+    var divText = document.getElementsByClassName("resultado");
+    var selector = document.getElementsByClassName("nieve");
+
+
+    selector[0].addEventListener("change",function(event){
+        divText[0].textContent = event.target.text;
+    });
+
+  </script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminando oyentes de evento</title>
+</head>
+<body >
+<textarea id='click-target' rows='5' cols='30'></textarea>
+<div>
+<p id='mouse-over-target'>Pasa el mouse sobre este párrafo</p>
+</div>
+<script language='javascript'>
+	var body = document.querySelector('body'),
+    	clickTarget = document.getElementById('click-target'),
+    	mouseOverTarget = document.getElementById('mouse-over-target'),
+    	toggle = false;
+	
+
+function makeBackgroundYellow() {
+    'use strict';
+
+    if (toggle) {
+        body.style.backgroundColor = 'white';
+    } else {
+        body.style.backgroundColor = 'yellow';
+    }
+
+    toggle = !toggle;
+}
+
+clickTarget.addEventListener('click',makeBackgroundYellow,false);
+
+mouseOverTarget.addEventListener('mouseover', function () {
+    	'use strict';
+    	clickTarget.removeEventListener('click',makeBackgroundYellow,false);
+	alert('se ha ejecutado eliminacion');
+});
+</script>
+</body>
+</html>

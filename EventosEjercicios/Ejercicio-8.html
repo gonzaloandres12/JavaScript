@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>  
+        td {
+            border: 1px solid black;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+		<script> 
+			var tabla;
+			document.addEventListener('readystatechange',comprobarEstado,true);
+			function comprobarEstado(evento){
+				if (document.readyState == 'interactive'){					
+					crearTabla();
+					asignarOyenteEvento();
+				}
+			}
+			function crearTabla(){
+				tabla = document.createElement('table');
+				var cuerpoTabla = document.createElement('tbody');
+				var celda = document.createElement('td');
+				celda.appendChild(document.createTextNode(''));
+				var fila = document.createElement('tr');
+				var i;
+				for(i=0;i<5;i++){
+                               fila.appendChild(celda.cloneNode(true));
+				}
+				for(i=0;i<5;i++){
+					cuerpoTabla.appendChild(fila.cloneNode(true));
+				}
+				tabla.appendChild(cuerpoTabla);
+				document.body.appendChild(tabla);
+			}
+			function asignarOyenteEvento(){
+				tabla.addEventListener('click',cambiarFondo,true);
+			}
+			function cambiarFondo(evento){
+				if(evento.target.style.backgroundColor != 'red'){
+					evento.target.style.backgroundColor = 'red';
+				}else{
+					evento.target.style.backgroundColor = '';
+				}
+			}
+		</script>       
+
+</head>
+<body>
+    
+</body>
+</html>
