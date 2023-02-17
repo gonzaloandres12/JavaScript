@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login disponible o no</title>
+</head>
+<script>
+	 document.addEventListener("DOMContentLoaded", function () {
+          var respuesta = document.getElementById("respuesta");
+          var enlace = document.getElementById("enlace");
+
+          enlace.addEventListener("click", function () {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+						console.log(this.responseText); 
+                        respuesta.value = this.responseText;
+                    }
+
+                };
+                xhr.open("GET",`ajax.php`, true);
+                //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+                xhr.send();
+            });
+
+
+
+        }, false);
+
+</script>
+	<body>
+		<form >
+			<table>
+				<tr>
+					<td>Nombre de usuario:</td>	
+					<td><input type="text" id="nombre" id="caja"></td>	
+					<td><a href="#" id="enlace">Comprobar disponibilidad</a></td>	
+				</tr>
+			</table><br><br>
+			<label for="">Disponibilidad:</label><input type="text" id="respuesta" value=""><br>
+			
+			
+
+		</form>
+</body>
+</html>

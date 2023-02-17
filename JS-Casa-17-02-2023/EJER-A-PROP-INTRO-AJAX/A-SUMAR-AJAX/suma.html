@@ -1,0 +1,53 @@
+<html>
+
+<head>
+
+    <title>Ejemplo sencillo de AJAX</title>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var valor1 = document.getElementById("valor1");
+            var valor2 = document.getElementById("valor2");
+            var calcula = document.getElementById("calcula");
+            var res = document.getElementById("resultado");
+
+            calcula.addEventListener("click", function () {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                       res.innerHTML = this.responseText;
+                    }
+
+                };
+                xhr.open("POST",`asumar.php`, true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+                xhr.send(`valorCaja1=${valor1.value}&valorCaja2=${valor2.value}`);
+            });
+
+
+
+        }, false);
+
+    </script>
+
+<body>
+
+    Introduce valor 1
+
+    <input type="text" id="valor1" value="0">
+
+    Introduce valor 2
+
+    <input type="text" id="valor2" value="0">
+
+
+    Realiza suma
+
+    <input type="button" id="calcula" value="Calcula">
+
+    Resultado: <span id="resultado">0</span>
+
+</body>
+
+</html>

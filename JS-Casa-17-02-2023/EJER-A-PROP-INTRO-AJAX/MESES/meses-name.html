@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<HTML>
+<head><meta charset="utf-8">
+<title>Obteniendo meses</title>
+</head>
+<script>
+     document.addEventListener("DOMContentLoaded", function () {
+          var valor = document.getElementById("valor");
+          var boton = document.getElementById("boton");
+          var res = document.getElementById("resultado");
+
+          boton.addEventListener("click", function () {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        res.innerHTML = this.responseText;
+                    }
+
+                };
+                xhr.open("GET",`meses.php?num=${valor.value}`, true);
+                //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+                xhr.send();
+            });
+
+
+
+        }, false);
+
+</script>
+<body>
+<input type="text" id="valor" value="">
+<input type="button" id="boton" value="consultar">
+<div id="resultado"></div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos JSON obtenidos a partir de PHP</title>
+</head>
+
+<script>
+    document.addEventListener("DOMContentLoaded",function(){
+        var nombre = document.getElementById("nombre");
+        var apellido = document.getElementById("apellido");
+        var edad = document.getElementById("edad");
+        var enviar = document.getElementsByClassName("enviar")[0];
+        var res = document.getElementsByClassName("respuesta")[0];
+
+        enviar.addEventListener("click",function(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    let response = JSON.parse(this.responseText);
+                        res.innerHTML+=response.nombre;
+                        console.log(this.responseText);
+                    }
+                };
+            xhr.open("POST",`datos.php`,true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+            xhr.send("nombre="+nombre.value+"&apellido="+apellido.value+"&edad="+edad.value);
+        });
+
+
+    },false);
+
+
+
+</script>
+<body>
+   <h1>Datos para enviar a PHP</h1>
+
+    <input type="text" id="nombre" placeholder="Nombre" accept="text/plain"><br><br>
+    <input type="text" id="apellido" placeholder="Apellido" accept="text/plain"><br><br>
+    <input type="number" id="edad" placeholder="Edad" accept="text/plain">
+
+    <div class="enviar"><h3>Enviar</h3></div>
+    <hr>
+    <div class="respuesta"></div> 
+</body>
+</html>
